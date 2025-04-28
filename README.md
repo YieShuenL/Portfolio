@@ -12,8 +12,6 @@ Grabbing Hook Game: A 2D physics-based game in UE5.
 
 Dungeon Escape: A 2D game with enemy AI algorithms in C#/Monogame.
 
-Replay Player Action: My final-year 3D UE5 project featuring clone mechanics.
-
 💻 Skills
 Engines/Tools: Unreal Engine 5, GDevelop, Monogame
 
