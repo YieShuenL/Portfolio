@@ -6,8 +6,6 @@ Here are some of the game projects I’ve worked on—developed collaboratively 
 
 Be Brave: A 2D platformer developed with GDevelop.
 
-A Fantastical 3D Universe: A 3D world built with OpenGL and C++.
-
 ClawMachine: A 2D physics-based game in UE5.
 
 Dungeon Escape: A 2D game with enemy AI algorithms in C#/Monogame.
