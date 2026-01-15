@@ -15,7 +15,7 @@ Furious and Fast: A 3D endless game made by Unreal Engine 5.
 💻 Skills
 Engines/Tools: Unreal Engine 5, GDevelop, Monogame
 
-Languages: C++, C#, Python, Java, JavaScript, HTML/CSS, PHP
+Languages: C++, C#, Java, JavaScript, HTML/CSS, PHP
 
 Design: Adobe PS, Lightroom, 2D Animation
 
