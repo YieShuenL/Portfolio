@@ -1,0 +1,272 @@
+/* ============================================================
+   GAME DETAIL PAGE STYLES — shared across all game pages
+   ============================================================ */
+
+/* Inherit from main style.css — include it before this file */
+
+.game-page-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+/* Back navigation */
+.game-back {
+  font-family: var(--font-pixel);
+  font-size: 1rem;
+  color: var(--text-dim);
+  background: none;
+  border: 2px solid var(--text-dim);
+  padding: 1rem 2rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s;
+  margin-bottom: 4rem;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.game-back:hover {
+  color: var(--neon-green);
+  border-color: var(--neon-green);
+  text-shadow: 0 0 8px var(--neon-green);
+}
+
+/* Game hero section */
+.game-hero {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding: 4rem 2rem;
+  background: var(--bg-card);
+  border: 2px solid rgba(0, 255, 65, 0.2);
+  border-radius: 2px;
+}
+
+.game-icon {
+  font-size: 8rem;
+  display: block;
+  margin-bottom: 2rem;
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.game-title {
+  font-family: var(--font-pixel);
+  font-size: 2.4rem;
+  color: var(--neon-green);
+  text-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  word-break: break-word;
+}
+
+.game-subtitle {
+  font-family: var(--font-mono);
+  font-size: 1.8rem;
+  color: var(--neon-blue);
+  margin-bottom: 1.5rem;
+}
+
+.game-badges {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+/* Content sections */
+.game-section {
+  background: var(--bg-card);
+  border: 2px solid rgba(0, 255, 65, 0.15);
+  padding: 3rem;
+  margin-bottom: 2rem;
+  border-radius: 2px;
+}
+
+.game-section h2 {
+  font-family: var(--font-pixel);
+  font-size: 1.3rem;
+  color: var(--neon-gold);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.game-section h2::before {
+  content: '▶';
+  font-size: 1rem;
+  color: var(--neon-green);
+  animation: blinkArrow 1s step-end infinite;
+}
+
+@keyframes blinkArrow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.game-section p {
+  font-size: 1.6rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+  opacity: 0.85;
+}
+
+.game-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.game-section ul li {
+  padding: 1rem 0;
+  padding-left: 2.5rem;
+  position: relative;
+  font-size: 1.6rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.game-section ul li::before {
+  content: '◆';
+  position: absolute;
+  left: 0;
+  color: var(--neon-orange);
+  font-size: 1.1rem;
+  top: 1.2rem;
+}
+
+/* Download button */
+.btn-download-lg {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-pixel);
+  font-size: 1.4rem;
+  padding: 2rem 4rem;
+  background: var(--neon-green);
+  color: var(--bg-deep);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  transition: all 0.3s;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-download-lg:hover {
+  box-shadow: 0 0 40px rgba(0, 255, 65, 0.6);
+  transform: scale(1.05);
+  background: #00ff55;
+}
+
+.btn-download-lg:active {
+  transform: scale(0.95);
+}
+
+.btn-download-lg::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
+}
+
+.btn-play-lg {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-pixel);
+  font-size: 1.4rem;
+  padding: 2rem 4rem;
+  background: transparent;
+  color: var(--neon-green);
+  text-decoration: none;
+  border: 3px solid var(--neon-green);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  transition: all 0.3s;
+  animation: blinkBorder 1.5s ease-in-out infinite;
+}
+
+.btn-play-lg:hover {
+  background: var(--neon-green);
+  color: var(--bg-deep);
+  box-shadow: 0 0 30px rgba(0, 255, 65, 0.5);
+}
+
+@keyframes blinkBorder {
+  0%, 100% { border-color: var(--neon-green); }
+  50% { border-color: rgba(0, 255, 65, 0.3); }
+}
+
+.btn-row-lg {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+/* Media placeholder */
+.media-placeholder {
+  background: rgba(0, 255, 65, 0.03);
+  border: 2px dashed rgba(0, 255, 65, 0.2);
+  padding: 4rem 2rem;
+  text-align: center;
+  border-radius: 2px;
+  margin-top: 2rem;
+}
+
+.media-placeholder .placeholder-icon {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.media-placeholder p {
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  color: var(--text-dim);
+  opacity: 0.5;
+}
+
+/* Size info */
+.file-info {
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  color: var(--text-dim);
+  margin-top: 1rem;
+  opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .game-title { font-size: 1.8rem; }
+  .game-icon { font-size: 5rem; }
+  .btn-download-lg,
+  .btn-play-lg { font-size: 1.1rem; padding: 1.5rem 2.5rem; }
+  .game-section { padding: 2rem; }
+}

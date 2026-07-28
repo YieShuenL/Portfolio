@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yie Shuen Lai — Game Developer Portfolio</title>
+  <meta name="description" content="Game Development Portfolio — Yie Shuen Lai. CS Graduate from MMU. Unreal Engine, GDevelop, Monogame projects.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🎮</text></svg>">
+</head>
+<body>
+
+<!-- Starfield background -->
+<div class="stars" id="stars"></div>
+
+<!-- CRT Scanline handled by CSS ::after -->
+
+<!-- App Shell -->
+<div id="app">
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav-bar" id="navbar">
+    <a href="#home" class="nav-link active" data-route="home">Home</a>
+    <a href="#projects" class="nav-link" data-route="projects">Projects</a>
+    <a href="#about" class="nav-link" data-route="about">About</a>
+  </nav>
+
+  <!-- ========== HOME PAGE ========== -->
+  <div class="page active" id="page-home">
+    <div class="title-screen">
+      <!-- Pixel art decoration -->
+      <div class="title-pixel-art">
+        <span class="pixel-sword"></span>
+        &nbsp;&nbsp;
+        <span class="pixel-shield"></span>
+      </div>
+
+      <h1 class="title-main">YIE SHUEN LAI</h1>
+      <p class="title-subtitle">Game Developer &amp; CS Graduate</p>
+      <div class="title-divider"></div>
+      <p class="hint-text" style="font-size:1.4rem; color:var(--text-dim);">Level 99 Game Creator</p>
+
+      <button class="btn-start" onclick="navigate('projects')">
+        ▶ PRESS START
+      </button>
+
+      <p class="hint-text" style="margin-top:1rem;">Click START or press ENTER</p>
+    </div>
+  </div>
+
+  <!-- ========== PROJECTS PAGE ========== -->
+  <div class="page" id="page-projects">
+    <h2 class="section-title">⚔ SELECT LEVEL ⚔</h2>
+    <p class="section-subtitle">Choose a game to view details</p>
+
+    <div class="projects-grid">
+      <!-- Be Brave -->
+      <a href="games/be-brave.html" class="game-card" style="text-decoration:none;">
+        <div class="game-card-header">
+          <div class="game-card-icon">🏃</div>
+          <div>
+            <div class="game-card-title">Be Brave</div>
+            <div class="game-card-engine">GDevelop 5</div>
+          </div>
+        </div>
+        <div class="game-card-body">
+          <p class="game-card-desc">A 2D platformer — run, jump, and face your fears in this handcrafted adventure.</p>
+        </div>
+        <div class="game-card-footer">
+          <span class="badge badge-team">TEAM</span>
+          <span class="badge badge-engine">2D</span>
+        </div>
+      </a>
+
+      <!-- ClawMachine -->
+      <a href="games/claw-machine.html" class="game-card" style="text-decoration:none;">
+        <div class="game-card-header">
+          <div class="game-card-icon">🕹️</div>
+          <div>
+            <div class="game-card-title">Claw Machine</div>
+            <div class="game-card-engine">Unreal Engine 5</div>
+          </div>
+        </div>
+        <div class="game-card-body">
+          <p class="game-card-desc">A 2D physics-based claw machine simulator. Grab the prizes if you can!</p>
+        </div>
+        <div class="game-card-footer">
+          <span class="badge badge-team">TEAM</span>
+          <span class="badge badge-engine">2D PHYSICS</span>
+        </div>
+      </a>
+
+      <!-- Dungeon Escape -->
+      <a href="games/dungeon-escape.html" class="game-card" style="text-decoration:none;">
+        <div class="game-card-header">
+          <div class="game-card-icon">🗡️</div>
+          <div>
+            <div class="game-card-title">Dungeon Escape</div>
+            <div class="game-card-engine">C# / Monogame</div>
+          </div>
+        </div>
+        <div class="game-card-body">
+          <p class="game-card-desc">Escape the dungeon! Features advanced enemy AI algorithms that hunt you down.</p>
+        </div>
+        <div class="game-card-footer">
+          <span class="badge badge-team">TEAM</span>
+          <span class="badge badge-engine">AI</span>
+        </div>
+      </a>
+
+      <!-- Furious and Fast -->
+      <a href="games/furious-and-fast.html" class="game-card" style="text-decoration:none;">
+        <div class="game-card-header">
+          <div class="game-card-icon">🏎️</div>
+          <div>
+            <div class="game-card-title">Furious &amp; Fast</div>
+            <div class="game-card-engine">Unreal Engine 5</div>
+          </div>
+        </div>
+        <div class="game-card-body">
+          <p class="game-card-desc">A 3D endless runner — dodge obstacles at breakneck speed. How far can you go?</p>
+        </div>
+        <div class="game-card-footer">
+          <span class="badge badge-solo">SOLO</span>
+          <span class="badge badge-engine">3D</span>
+        </div>
+      </a>
+
+      <!-- Repeat System Action Game -->
+      <a href="games/repeat-system.html" class="game-card" style="text-decoration:none;">
+        <div class="game-card-header">
+          <div class="game-card-icon">🔄</div>
+          <div>
+            <div class="game-card-title">Repeat System Action</div>
+            <div class="game-card-engine">Unreal Engine 5</div>
+          </div>
+        </div>
+        <div class="game-card-body">
+          <p class="game-card-desc">Final Year Project — a repeat-based gameplay system. Learn through iteration.</p>
+        </div>
+        <div class="game-card-footer">
+          <span class="badge badge-solo">SOLO</span>
+          <span class="badge badge-engine">FYP</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ========== ABOUT PAGE ========== -->
+  <div class="page" id="page-about">
+    <h2 class="section-title">📜 CHARACTER SHEET 📜</h2>
+    <p class="section-subtitle">Player Profile</p>
+
+    <div class="about-section">
+      <div class="about-card">
+        <div class="about-avatar">🎮</div>
+        <div class="about-name">Yie Shuen Lai</div>
+        <p class="about-bio">
+          Game Development graduate with a Bachelor's in Computer Science
+          from Multimedia University (MMU). Passionate about creating immersive
+          game experiences with Unreal Engine, GDevelop, C++, and C#.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3 class="section-title" style="font-size:1.4rem; margin-bottom:1.5rem;">⚡ SKILLS ⚡</h3>
+        <div class="skills-grid">
+          <span class="skill-tag">Unreal Engine 5</span>
+          <span class="skill-tag">GDevelop</span>
+          <span class="skill-tag">Monogame</span>
+          <span class="skill-tag">C++</span>
+          <span class="skill-tag">C#</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">HTML/CSS</span>
+          <span class="skill-tag">PHP</span>
+          <span class="skill-tag">Photoshop</span>
+          <span class="skill-tag">Lightroom</span>
+          <span class="skill-tag">2D Animation</span>
+        </div>
+      </div>
+
+      <div class="about-card">
+        <h3 class="section-title" style="font-size:1.4rem; margin-bottom:1.5rem;">🌍 LANGUAGES 🌍</h3>
+        <div class="skills-grid">
+          <span class="skill-tag">English</span>
+          <span class="skill-tag">Malay</span>
+          <span class="skill-tag">Mandarin</span>
+          <span class="skill-tag">Cantonese</span>
+        </div>
+      </div>
+
+      <div class="about-card">
+        <h3 class="section-title" style="font-size:1.4rem; margin-bottom:1.5rem;">📫 CONTACT 📫</h3>
+        <p style="font-size:1.6rem; color:var(--neon-green);">
+          yshuen.lai@gmail.com
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== GAME DETAIL PAGES ========== -->
+  <!-- Be Brave -->
+  <div class="page" id="page-be-brave">
+    <div class="detail-page">
+      <button class="back-btn" onclick="navigate('projects')">◀ BACK TO LEVELS</button>
+      <div class="detail-header">
+        <span class="detail-icon">🏃</span>
+        <h2 class="detail-title">Be Brave</h2>
+        <p class="detail-engine">GDevelop 5 — 2D Platformer</p>
+      </div>
+
+      <div class="detail-section">
+        <h3>About This Game</h3>
+        <p>A 2D platformer built with GDevelop 5. Run, jump, and face challenges across handcrafted levels. Play directly in your browser — no download needed!</p>
+        <div class="btn-row">
+          <a href="https://gd.games/instant-builds/be7b48c3-42b6-40d8-8e9a-ac75db40c5c1" target="_blank" rel="noopener" class="btn-play">▶ PLAY NOW</a>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3>My Contributions</h3>
+        <ul class="contribution-list">
+          <li>Level Design — crafted engaging platformer levels</li>
+          <li>Player UI — designed intuitive in-game interface</li>
+          <li>Asset Sourcing — found and integrated game assets</li>
+        </ul>
+      </div>
+
+      <div class="detail-section">
+        <h3>Stats</h3>
+        <div style="display:flex; gap:2rem; flex-wrap:wrap; justify-content:center;">
+          <span class="badge badge-team">TEAM PROJECT</span>
+          <span class="badge badge-engine">2D</span>
+          <span class="badge badge-engine">BROWSER</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ClawMachine -->
+  <div class="page" id="page-claw-machine">
+    <div class="detail-page">
+      <button class="back-btn" onclick="navigate('projects')">◀ BACK TO LEVELS</button>
+      <div class="detail-header">
+        <span class="detail-icon">🕹️</span>
+        <h2 class="detail-title">Claw Machine</h2>
+        <p class="detail-engine">Unreal Engine 5 — 2D Physics Game</p>
+      </div>
+
+      <div class="detail-section">
+        <h3>About This Game</h3>
+        <p>A 2D physics-based claw machine simulator built in Unreal Engine 5. Control the claw, grab prizes, and test your precision!</p>
+        <div class="btn-row">
+          <a href="https://drive.google.com/file/d/1ebI7_bAoZNP8C5WgVyRTiriTvBxuLOMf/view?usp=sharing" target="_blank" rel="noopener" class="btn-download">⬇ DOWNLOAD</a>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3>My Contributions</h3>
+        <ul class="contribution-list">
+          <li>Level Design — built the claw machine arena</li>
+          <li>Player UI — designed the game HUD and controls</li>
+          <li>Claw Movement Logic — programmed basic claw physics and movement</li>
+        </ul>
+      </div>
+
+      <div class="detail-section">
+        <h3>Stats</h3>
+        <div style="display:flex; gap:2rem; flex-wrap:wrap; justify-content:center;">
+          <span class="badge badge-team">TEAM PROJECT</span>
+          <span class="badge badge-engine">2D PHYSICS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dungeon Escape -->
+  <div class="page" id="page-dungeon-escape">
+    <div class="detail-page">
+      <button class="back-btn" onclick="navigate('projects')">◀ BACK TO LEVELS</button>
+      <div class="detail-header">
+        <span class="detail-icon">🗡️</span>
+        <h2 class="detail-title">Dungeon Escape</h2>
+        <p class="detail-engine">C# / Monogame — 2D Enemy AI Game</p>
+      </div>
+
+      <div class="detail-section">
+        <h3>About This Game</h3>
+        <p>A 2D dungeon crawler featuring advanced enemy AI algorithms. Built with C# and the Monogame framework. Enemies chase, patrol, and hunt the player using pathfinding algorithms.</p>
+        <div class="btn-row">
+          <a href="https://github.com/YieShuenL/Portfolio/raw/main/Dungeon%20Escape.zip" target="_blank" rel="noopener" class="btn-download">⬇ DOWNLOAD</a>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3>Features</h3>
+        <ul class="contribution-list">
+          <li>Enemy AI with patrol and chase behaviors</li>
+          <li>Pathfinding algorithms for intelligent enemy movement</li>
+          <li>2D dungeon environment with obstacles</li>
+        </ul>
+      </div>
+
+      <div class="detail-section">
+        <h3>Stats</h3>
+        <div style="display:flex; gap:2rem; flex-wrap:wrap; justify-content:center;">
+          <span class="badge badge-team">TEAM PROJECT</span>
+          <span class="badge badge-engine">C#</span>
+          <span class="badge badge-engine">AI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Furious and Fast -->
+  <div class="page" id="page-furious-and-fast">
+    <div class="detail-page">
+      <button class="back-btn" onclick="navigate('projects')">◀ BACK TO LEVELS</button>
+      <div class="detail-header">
+        <span class="detail-icon">🏎️</span>
+        <h2 class="detail-title">Furious &amp; Fast</h2>
+        <p class="detail-engine">Unreal Engine 5 — 3D Endless Runner</p>
+      </div>
+
+      <div class="detail-section">
+        <h3>About This Game</h3>
+        <p>A high-speed 3D endless runner developed solo in Unreal Engine 5. Dodge obstacles, collect power-ups, and push your reflexes to the limit!</p>
+        <div class="btn-row">
+          <a href="https://drive.google.com/file/d/1rqQ4S0JrJXtoddkDJ-xMdG5274cxC1uE/view?usp=sharing" target="_blank" rel="noopener" class="btn-download">⬇ DOWNLOAD</a>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3>Stats</h3>
+        <div style="display:flex; gap:2rem; flex-wrap:wrap; justify-content:center;">
+          <span class="badge badge-solo">SOLO PROJECT</span>
+          <span class="badge badge-engine">3D</span>
+          <span class="badge badge-engine">ENDLESS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Repeat System Action Game -->
+  <div class="page" id="page-repeat-system">
+    <div class="detail-page">
+      <button class="back-btn" onclick="navigate('projects')">◀ BACK TO LEVELS</button>
+      <div class="detail-header">
+        <span class="detail-icon">🔄</span>
+        <h2 class="detail-title">Repeat System Action</h2>
+        <p class="detail-engine">Unreal Engine 5 — Final Year Project</p>
+      </div>
+
+      <div class="detail-section">
+        <h3>About This Game</h3>
+        <p>Final Year Project — a unique repeat-based gameplay system that encourages player learning through iteration. Each cycle brings new understanding. Built solo in Unreal Engine 5.</p>
+        <div class="btn-row">
+          <a href="https://drive.google.com/file/d/1rphynGgeqsu5RP1Pu-lHgxEKjIl19hCY/view?usp=sharing" target="_blank" rel="noopener" class="btn-download">⬇ DOWNLOAD</a>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3>Concept</h3>
+        <ul class="contribution-list">
+          <li>Repeat-based gameplay loop — learn through iteration</li>
+          <li>Solo-developed Final Year Project</li>
+          <li>Built with Unreal Engine 5</li>
+        </ul>
+      </div>
+
+      <div class="detail-section">
+        <h3>Stats</h3>
+        <div style="display:flex; gap:2rem; flex-wrap:wrap; justify-content:center;">
+          <span class="badge badge-solo">SOLO PROJECT</span>
+          <span class="badge badge-engine">FYP</span>
+          <span class="badge badge-engine">UE5</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <p>© 2026 Yie Shuen Lai — Built with ❤️ and pixels</p>
+    <p style="margin-top:0.5rem;">github.com/YieShuenL</p>
+  </footer>
+
+</div><!-- /#app -->
+
+<script src="js/main.js"></script>
+</body>
+</html>
