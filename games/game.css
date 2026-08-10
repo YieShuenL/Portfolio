@@ -253,6 +253,29 @@
   opacity: 0.5;
 }
 
+/* Screenshot gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.gallery img {
+  width: 100%;
+  border: 2px solid rgba(0, 255, 65, 0.2);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: block;
+}
+
+.gallery img:hover {
+  border-color: var(--neon-green);
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+  transform: scale(1.03);
+}
+
 /* Size info */
 .file-info {
   font-family: var(--font-mono);
