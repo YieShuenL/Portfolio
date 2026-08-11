@@ -1,20 +1,13 @@
 /* ============================================================
    GAME-STYLE PORTFOLIO — Interactive Engine
-   SPA Router · Starfield · Transitions · Easter Eggs
+   CSS :target routing · Starfield · Easter Eggs
    ============================================================ */
 
 (function () {
   'use strict';
 
-  // --- Routes ---
-  const ROUTES = [
-    'home', 'projects', 'about',
-    'be-brave', 'claw-machine', 'dungeon-escape',
-    'furious-and-fast', 'repeat-system'
-  ];
-
+  const SPA_ROUTES = { home: 1, projects: 1, about: 1 };
   let currentRoute = 'home';
-  let isTransitioning = false;
 
   // ==========================================================
   //  STARFIELD BACKGROUND
@@ -54,7 +47,6 @@
 
     container.appendChild(frag);
 
-    // Add twinkle keyframes if not already present
     if (!document.getElementById('twinkle-style')) {
       const style = document.createElement('style');
       style.id = 'twinkle-style';
@@ -75,8 +67,7 @@
     const container = document.getElementById('app');
     if (!container) return;
 
-    const decorCount = 6;
-    for (let i = 0; i < decorCount; i++) {
+    for (let i = 0; i < 6; i++) {
       const decor = document.createElement('div');
       decor.className = 'pixel-decor';
       const x = 5 + Math.random() * 90;
@@ -100,64 +91,17 @@
   }
 
   // ==========================================================
-  //  SPA ROUTER
+  //  ROUTER — CSS :target handles display, JS handles metadata
   // ==========================================================
   function navigate(route) {
-    if (isTransitioning) return;
     if (route === currentRoute) return;
-
-    const targetPage = document.getElementById('page-' + route);
-    if (!targetPage) {
-      // Fallback to home
-      route = 'home';
-    }
-
-    isTransitioning = true;
-
-    // Find current active page
-    const currentPage = document.querySelector('.page.active');
-    const newPage = document.getElementById('page-' + route);
-
-    if (currentPage && currentPage !== newPage) {
-      // Exit current page
-      currentPage.classList.add('exiting');
-      currentPage.addEventListener('animationend', function handler() {
-        currentPage.removeEventListener('animationend', handler);
-        currentPage.classList.remove('active', 'exiting');
-
-        // Enter new page
-        newPage.classList.add('active');
-        newPage.scrollTop = 0;
-        window.scrollTo(0, 0);
-
-        isTransitioning = false;
-      }, { once: true });
-    } else if (!currentPage) {
-      // First load
-      newPage.classList.add('active');
-      isTransitioning = false;
-    } else {
-      // Same page
-      isTransitioning = false;
-      return;
-    }
-
-    // Update route and hash
-    currentRoute = route;
-    if (window.location.hash !== '#' + route) {
-      history.pushState(null, '', '#' + route);
-    }
-
-    // Update nav active state
-    updateNavActive(route);
-
-    // Update title
-    updateTitle(route);
+    if (!SPA_ROUTES[route]) route = 'home';
+    window.location.hash = '#' + route;
+    // hashchange event fires → handleHashChange updates metadata
   }
 
   function updateNavActive(route) {
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
+    document.querySelectorAll('.nav-link').forEach(link => {
       const linkRoute = link.getAttribute('data-route');
       if (linkRoute === route || (route !== 'home' && route !== 'projects' && route !== 'about' && linkRoute === 'projects')) {
         link.classList.add('active');
@@ -171,35 +115,36 @@
     const titles = {
       'home': 'Yie Shuen Lai — Game Developer Portfolio',
       'projects': 'Projects — Yie Shuen Lai',
-      'about': 'About — Yie Shuen Lai',
-      'be-brave': 'Be Brave — Yie Shuen Lai',
-      'claw-machine': 'Claw Machine — Yie Shuen Lai',
-      'dungeon-escape': 'Dungeon Escape — Yie Shuen Lai',
-      'furious-and-fast': 'Furious & Fast — Yie Shuen Lai',
-      'repeat-system': 'Repeat System Action — Yie Shuen Lai'
+      'about': 'About — Yie Shuen Lai'
     };
     document.title = titles[route] || titles['home'];
+  }
+
+  // ==========================================================
+  //  HASH CHANGE — sync metadata when hash changes
+  // ==========================================================
+  function handleHashChange() {
+    const hash = window.location.hash.replace('#', '') || 'home';
+    if (SPA_ROUTES[hash]) {
+      currentRoute = hash;
+      updateNavActive(hash);
+      updateTitle(hash);
+      window.scrollTo(0, 0);
+    }
   }
 
   // ==========================================================
   //  KEYBOARD SHORTCUTS
   // ==========================================================
   function handleKeyboard(e) {
-    // Don't trigger if user is typing in an input
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
     switch (e.key) {
       case 'Enter':
-        if (currentRoute === 'home') {
-          navigate('projects');
-        }
+        if (currentRoute === 'home') navigate('projects');
         break;
       case 'Escape':
-        if (currentRoute !== 'home' && currentRoute !== 'projects' && currentRoute !== 'about') {
-          navigate('projects');
-        } else if (currentRoute === 'projects' || currentRoute === 'about') {
-          navigate('home');
-        }
+        if (currentRoute === 'projects' || currentRoute === 'about') navigate('home');
         break;
       case 'h':
         if (!e.ctrlKey && !e.metaKey) navigate('home');
@@ -214,20 +159,7 @@
   }
 
   // ==========================================================
-  //  HASH CHANGE HANDLER
-  // ==========================================================
-  function handleHashChange() {
-    const hash = window.location.hash.replace('#', '') || 'home';
-    if (ROUTES.includes(hash)) {
-      navigate(hash);
-    } else {
-      // Unknown route, go home
-      navigate('home');
-    }
-  }
-
-  // ==========================================================
-  //  CLICK OUTSIDE NAV HANDLER
+  //  NAV CLICKS
   // ==========================================================
   function handleNavClicks(e) {
     const link = e.target.closest('.nav-link');
@@ -242,13 +174,7 @@
   //  EASTER EGG: Konami Code
   // ==========================================================
   function setupKonamiCode() {
-    const konami = [
-      'ArrowUp', 'ArrowUp',
-      'ArrowDown', 'ArrowDown',
-      'ArrowLeft', 'ArrowRight',
-      'ArrowLeft', 'ArrowRight',
-      'b', 'a'
-    ];
+    const konami = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
     let pos = 0;
 
     document.addEventListener('keydown', function (e) {
@@ -259,15 +185,12 @@
           pos = 0;
         }
       } else {
-        pos = 0;
-        // Check if the wrong key could be the start
-        if (e.key === konami[0]) pos = 1;
+        pos = (e.key === konami[0]) ? 1 : 0;
       }
     });
   }
 
   function activateEasterEgg() {
-    // Rainbow flash effect
     const body = document.body;
     const colors = ['#ff0000', '#ff7700', '#ffff00', '#00ff00', '#0000ff', '#8b00ff'];
     let i = 0;
@@ -278,7 +201,6 @@
       if (i >= colors.length) {
         clearInterval(interval);
         body.style.backgroundColor = '';
-        // Show secret message
         showSecretMessage();
       }
     }, 100);
@@ -287,32 +209,18 @@
   function showSecretMessage() {
     const msg = document.createElement('div');
     msg.style.cssText = `
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-family: var(--font-pixel);
-      font-size: 2rem;
-      color: var(--neon-gold);
-      text-shadow: 0 0 20px var(--neon-gold);
-      z-index: 10000;
-      pointer-events: none;
-      animation: fadeOut 3s forwards;
-      text-align: center;
+      position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      font-family: var(--font-pixel); font-size: 2rem; color: var(--neon-gold);
+      text-shadow: 0 0 20px var(--neon-gold); z-index: 10000;
+      pointer-events: none; animation: fadeOut 3s forwards; text-align: center;
     `;
     msg.textContent = '🏆 ACHIEVEMENT UNLOCKED 🏆\nYou found the secret!';
     document.body.appendChild(msg);
 
-    // Add fadeOut keyframe
     if (!document.getElementById('fadeout-style')) {
       const style = document.createElement('style');
       style.id = 'fadeout-style';
-      style.textContent = `
-        @keyframes fadeOut {
-          0%, 70% { opacity: 1; }
-          100% { opacity: 0; }
-        }
-      `;
+      style.textContent = '@keyframes fadeOut { 0%,70% { opacity:1 } 100% { opacity:0 } }';
       document.head.appendChild(style);
     }
 
@@ -320,34 +228,27 @@
   }
 
   // ==========================================================
-  //  EXPOSE TO GLOBAL SCOPE (for onclick attributes)
+  //  EXPOSE FOR onclick ATTRIBUTES
   // ==========================================================
   window.navigate = navigate;
 
   // ==========================================================
-  //  INITIALIZATION
+  //  INIT
   // ==========================================================
   function init() {
-    // Remove instant-route blocker — SPA router takes over
-    var instantStyle = document.getElementById('instant-route');
-    if (instantStyle) instantStyle.remove();
-
     createStarfield();
     spawnPixelDecorations();
     setupKonamiCode();
 
-    // Set up event listeners
     document.addEventListener('keydown', handleKeyboard);
     window.addEventListener('hashchange', handleHashChange);
     document.getElementById('navbar').addEventListener('click', handleNavClicks);
 
-    // Load initial route from hash
+    // Sync current route from hash (CSS :target already shows correct page)
     const hash = window.location.hash.replace('#', '') || 'home';
-    if (ROUTES.includes(hash)) {
-      navigate(hash);
-    } else {
-      navigate('home');
-    }
+    currentRoute = SPA_ROUTES[hash] ? hash : 'home';
+    updateNavActive(currentRoute);
+    updateTitle(currentRoute);
 
     console.log('%c🎮 Yie Shuen Lai — Game Developer Portfolio %cReady!',
       'color: #00ff41; font-size: 16px;', 'color: #e0e0e0;');
@@ -355,7 +256,6 @@
       'color: #888; font-size: 11px;');
   }
 
-  // Start when DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
