@@ -104,7 +104,7 @@ body::after {
 }
 
 /* Hide default #home when any other page is targeted */
-#app:has(.page:target) #home:not(:target) {
+.page:target ~ #home {
   display: none;
 }
 
