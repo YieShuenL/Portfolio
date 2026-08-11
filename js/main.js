@@ -328,6 +328,10 @@
   //  INITIALIZATION
   // ==========================================================
   function init() {
+    // Remove instant-route blocker — SPA router takes over
+    var instantStyle = document.getElementById('instant-route');
+    if (instantStyle) instantStyle.remove();
+
     createStarfield();
     spawnPixelDecorations();
     setupKonamiCode();

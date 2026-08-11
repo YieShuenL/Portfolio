@@ -10,6 +10,17 @@
 </head>
 <body>
 
+<!-- Instant route switch — prevents home page flash on deep links -->
+<script>
+(function(){
+  var route = (window.location.hash.replace('#','') || 'home');
+  // Only SPA routes (game pages are separate HTML files)
+  var valid = {home:1, projects:1, about:1};
+  if (!valid[route]) route = 'home';
+  document.write('<style id="instant-route">.page{display:none}#page-'+route+'{display:block}</style>');
+})();
+</script>
+
 <!-- Starfield background -->
 <div class="stars" id="stars"></div>
 
@@ -26,7 +37,7 @@
   </nav>
 
   <!-- ========== HOME PAGE ========== -->
-  <div class="page active" id="page-home">
+  <div class="page" id="page-home">
     <div class="title-screen">
       <!-- Pixel art decoration -->
       <div class="title-pixel-art">
