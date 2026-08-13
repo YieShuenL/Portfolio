@@ -305,6 +305,9 @@ body.menu-open{overflow:hidden}
 .contact-mail:hover{color:var(--orange);border-color:var(--orange)}
 .contact-note{margin-top:2.2rem;font-size:.8rem;color:var(--cream-dim);display:flex;align-items:center;gap:.7rem}
 .contact-note::before{content:"";width:26px;height:2px;background:var(--orange)}
+.contact-action{text-align:center;margin-top:clamp(3.5rem,7vw,5.5rem);padding-top:clamp(3rem,6vw,4.5rem);border-top:1px solid var(--line-dark)}
+.contact-action .contact-hint{color:var(--cream-dim);font:400 1.05rem/1.7 var(--sans);max-width:44ch;margin:0 auto 1.9rem}
+.contact-action .btn{font-size:1.05rem;padding:1.25rem 3rem;letter-spacing:.02em}
 
 .form-card{background:var(--card);color:var(--ink);padding:clamp(1.8rem,3.5vw,2.8rem);box-shadow:0 30px 60px rgba(0,0,0,.32)}
 .form-card h3{font:500 1.4rem/1.2 var(--serif);margin-bottom:.4rem}
@@ -675,6 +678,11 @@ footer{background:var(--dark);color:var(--cream);border-top:1px solid var(--line
       </div>
     </div>
   </div>
+
+  <div class="wrap contact-action" data-reveal>
+    <p class="contact-hint">Curious about the story behind this site, or how it was made?</p>
+    <a href="more.html" class="btn on-dark">More <span class="arr">→</span></a>
+  </div>
 </section>
 </main>
 
@@ -704,7 +712,6 @@ footer{background:var(--dark);color:var(--cream);border-top:1px solid var(--line
         <a href="#coaching">Coaching</a>
         <a href="#approach">Approach</a>
         <a href="#contact">Contact</a>
-        <a href="more.html">More</a>
       </div>
     </div>
     <div class="foot-bottom">
