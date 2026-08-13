@@ -103,7 +103,7 @@
   function updateNavActive(route) {
     document.querySelectorAll('.nav-link').forEach(link => {
       const linkRoute = link.getAttribute('data-route');
-      if (linkRoute === route || (route !== 'home' && route !== 'projects' && route !== 'about' && linkRoute === 'projects')) {
+      if (linkRoute === route) {
         link.classList.add('active');
       } else {
         link.classList.remove('active');
@@ -126,12 +126,17 @@
   // ==========================================================
   function handleHashChange() {
     const hash = window.location.hash.replace('#', '') || 'home';
-    if (SPA_ROUTES[hash]) {
-      currentRoute = hash;
-      updateNavActive(hash);
-      updateTitle(hash);
-      window.scrollTo(0, 0);
-    }
+    if (!SPA_ROUTES[hash]) return;
+    currentRoute = hash;
+
+    // Toggle active class on pages
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const target = document.getElementById(hash);
+    if (target) target.classList.add('active');
+
+    updateNavActive(hash);
+    updateTitle(hash);
+    window.scrollTo(0, 0);
   }
 
   // ==========================================================
@@ -245,7 +250,7 @@
     window.addEventListener('hashchange', handleHashChange);
     document.getElementById('navbar').addEventListener('click', handleNavClicks);
 
-    // Sync current route from hash (CSS :target already shows correct page)
+    // Sync current route from hash (inline script already showed correct page)
     const hash = window.location.hash.replace('#', '') || 'home';
     currentRoute = SPA_ROUTES[hash] ? hash : 'home';
     updateNavActive(currentRoute);

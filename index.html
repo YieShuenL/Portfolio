@@ -449,6 +449,19 @@
 
 </div><!-- /#app -->
 
+<!-- Initial route: show correct page before first paint (zero flash) -->
+<script>
+(function(){
+  var hash = window.location.hash.replace('#','') || 'home';
+  var el = document.getElementById(hash);
+  if (el && el.classList.contains('page')) {
+    el.classList.add('active');
+  } else {
+    var home = document.getElementById('home');
+    if (home) home.classList.add('active');
+  }
+})();
+</script>
 <script src="js/main.js"></script>
 </body>
 </html>

@@ -92,25 +92,10 @@ body::after {
   display: none;
 }
 
-/* Default: home when no hash */
-#home {
-  display: block;
-}
-
-/* CSS-only routing via :target — instant, zero JS, zero flash */
-.page:target {
-  display: block;
-  animation: pageEnter 0.5s ease-out;
-}
-
-/* Hide default #home when any other page is targeted */
-.page:target ~ #home {
-  display: none;
-}
-
-/* JS-driven active class (for programmatic nav where hash matches) */
+/* JS-driven active class — bulletproof, no :target/:has needed */
 .page.active {
   display: block;
+  animation: pageEnter 0.5s ease-out;
 }
 
 .page.exiting {
