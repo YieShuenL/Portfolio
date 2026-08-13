@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>More · Kevin Brennan Coaching</title>
+<meta name="description" content="Like this site's design? I can craft a similarly styled personal or brand website for you.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%230E1626'/%3E%3Crect%20x='24' y='20' width='16' height='4' rx='2' fill='%23F0764C'/%3E%3Crect%20x='16' y='29' width='32' height='4' rx='2' fill='%230E7C86'/%3E%3Crect%20x='19' y='38' width='26' height='4' rx='2' fill='%237C97F2'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/fraunces/400.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/fraunces/500.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/fraunces/400-italic.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter/400.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter/500.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter/600.css">
+
+<style>
+:root{
+  --paper:   #F8F9F8;
+  --paper-2: #EEF1F2;
+  --ink:     #181818;
+  --ink-2:   #4A4F54;
+  --ink-3:   #7A8086;
+  --blue:    #16388E;
+  --blue-deep:#0E2A6E;
+  --teal:    #0E7C86;
+  --orange:  #F0764C;
+  --dark:    #0E1626;
+  --line:    rgba(24,24,24,.16);
+  --line-soft: rgba(24,24,24,.08);
+  --serif:   'Fraunces', Georgia, serif;
+  --sans:    'Inter', system-ui, -apple-system, sans-serif;
+  --ease:    cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink);
+  font:400 1rem/1.6 var(--sans);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+
+/* header */
+.more-top{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.6rem 5vw;border-bottom:1px solid var(--line-soft);
+}
+.brand{
+  display:inline-flex;align-items:center;gap:.8rem;
+  text-decoration:none;color:var(--ink);
+}
+.brand-lines{display:inline-flex;flex-direction:column;gap:.3rem}
+.brand-lines i{display:block;width:1.4rem;height:.25rem;border-radius:2px}
+.brand-lines i:nth-child(1){background:var(--orange)}
+.brand-lines i:nth-child(2){background:var(--teal)}
+.brand-lines i:nth-child(3){background:var(--blue-soft, #7C97F2)}
+.brand-text{display:inline-flex;flex-direction:column;line-height:1.15}
+.brand-name{font:500 1.02rem/1.2 var(--serif);letter-spacing:.01em}
+.brand-sub{font:400 .72rem/1.2 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.more-back{
+  font:500 .86rem/1 var(--sans);letter-spacing:.04em;color:var(--ink-2);
+  text-decoration:none;padding:.4rem 0;position:relative;
+}
+.more-back::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.more-back:hover{color:var(--ink)}
+.more-back:hover::after{transform:scaleX(1)}
+
+/* main */
+.more-main{
+  min-height:70vh;display:flex;align-items:center;justify-content:center;
+  padding:4rem 5vw;
+}
+.letter{
+  max-width:44rem;width:100%;text-align:center;
+  background:var(--card, #FCFCFB);border:1px solid var(--line-soft);
+  padding:4rem 3rem;box-shadow:0 1px 2px rgba(24,24,24,.04);
+}
+.letter-mark{display:block;color:var(--orange);font-size:1.4rem;margin-bottom:1.5rem}
+.eyebrow{
+  font:500 .76rem/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--teal);margin-bottom:1.4rem;
+}
+.more-title{
+  font:500 clamp(1.8rem, 4vw, 2.6rem)/1.2 var(--serif);letter-spacing:-.01em;
+  margin-bottom:1.5rem;
+}
+.more-title em{font-style:italic;color:var(--blue)}
+.letter-rule{width:3rem;height:3px;background:var(--orange);margin:0 auto 1.6rem}
+.more-text{
+  font:400 1.05rem/1.7 var(--sans);color:var(--ink-2);
+  margin-bottom:1rem;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:.65rem;
+  padding:1rem 1.8rem;background:var(--ink);color:var(--paper);
+  border:1px solid var(--ink);font:500 .92rem/1 var(--sans);letter-spacing:.03em;
+  text-decoration:none;cursor:pointer;transition:background .35s var(--ease),border-color .35s,transform .35s var(--ease);
+  margin-top:1.4rem;
+}
+.btn .arr{transition:transform .35s var(--ease)}
+.btn:hover{background:var(--blue);border-color:var(--blue)}
+.btn:hover .arr{transform:translateX(5px)}
+.btn:active{transform:scale(.98)}
+.more-small{
+  margin-top:1.6rem;font:400 .82rem/1.5 var(--sans);color:var(--ink-3);
+}
+
+/* footer */
+.more-foot{
+  text-align:center;padding:2.4rem 5vw;border-top:1px solid var(--line-soft);
+  color:var(--ink-3);font:400 .82rem/1.5 var(--sans);
+}
+.more-foot .more-verse{
+  font:italic 500 1.05rem/1.5 var(--serif);color:var(--ink-2);margin-bottom:.5rem;
+}
+.more-foot span{display:block}
+
+@media (max-width:640px){
+  .letter{padding:2.6rem 1.6rem}
+  .more-top{padding:1.2rem 5vw}
+}
+</style>
+</head>
+<body>
+
+<header class="more-top">
+  <a class="brand" href="index.html">
+    <span class="brand-lines" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="brand-text">
+      <span class="brand-name">Kevin Brennan</span>
+      <span class="brand-sub">Coaching &amp; Consulting</span>
+    </span>
+  </a>
+  <a class="more-back" href="index.html">← Back to home</a>
+</header>
+
+<main class="more-main">
+  <div class="letter">
+    <span class="letter-mark" aria-hidden="true">◆</span>
+    <p class="eyebrow">MORE · A short note</p>
+    <h1 class="more-title">Like this <em>coaching site</em>?</h1>
+    <div class="letter-rule" aria-hidden="true"></div>
+    <p class="more-text">If you like this site's design, I can craft a similarly styled personal or brand website for you.</p>
+    <p class="more-text">Or I can customize and adapt this existing site to fit your vision.</p>
+    <a class="btn" href="../../#about">Get in touch <span class="arr">→</span></a>
+    <p class="more-small">Replies usually arrive within a day — clear, direct, and to the point.</p>
+  </div>
+</main>
+
+<footer class="more-foot">
+  <p class="more-verse">Good design communicates before a word is read.</p>
+  <span>© 2026 Kevin Brennan Coaching &amp; Consulting</span>
+</footer>
+
+</body>
+</html>
