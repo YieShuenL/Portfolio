@@ -1,0 +1,224 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHILU · Specialty Coffee &amp; Tea</title>
+<meta name="description" content="SHILU — Single-origin coffee &amp; fine loose-leaf tea. Every cup is a moment to breathe.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+SC:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body id="top">
+
+<!-- Grain texture & reading progress -->
+<div class="grain" aria-hidden="true"></div>
+<div class="progress-bar" aria-hidden="true"><i id="progressBar"></i></div>
+
+<!-- ============ Header ============ -->
+<header id="siteHeader">
+  <a class="brand" href="#top">SHILU<span class="brand-en">SHILU · EST. 2019</span></a>
+
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+    <span></span><span></span>
+  </button>
+
+  <nav class="nav" id="mainNav" aria-label="Main navigation">
+    <a href="#top"      class="nav-link is-active" data-nav="top">Home</a>
+    <a href="#about"    class="nav-link" data-nav="about">About</a>
+    <a href="#products" class="nav-link" data-nav="products">Products</a>
+    <a href="#contact"  class="nav-link nav-cta">Contact</a>
+  </nav>
+</header>
+
+<!-- ============ Hero ============ -->
+<section class="hero" id="hero">
+  <div class="hero-media">
+    <img src="https://picsum.photos/seed/shilu-morning-coffee/1920/1200" alt="Hand-poured coffee in morning light">
+  </div>
+  <div class="hero-veil" aria-hidden="true"></div>
+
+  <p class="hero-side" aria-hidden="true">Breathe · Space · Essence</p>
+
+  <div class="hero-inner" id="heroInner">
+    <p class="hero-eyebrow" data-reveal>SHILU — SPECIALTY COFFEE &amp; TEA</p>
+    <h1 class="hero-title" data-reveal style="--d:.12s">Every cup<br>is a moment to breathe.</h1>
+    <p class="hero-sub" data-reveal style="--d:.24s">Highland beans &amp; seasonal tea gardens · Slow roast · Gentle brew</p>
+    <a href="#products" class="btn btn-ghost" data-reveal style="--d:.36s">Explore our products <span class="btn-arrow">↓</span></a>
+  </div>
+
+  <div class="hero-meta" aria-hidden="true">
+    <span>N 24°47′ Cloud-Kissed Highlands</span><span class="dot">◆</span><span>Small batch · Hand-selected</span>
+  </div>
+  <a class="scroll-hint" href="#products" aria-label="Scroll down"><span class="hint-word">Down</span><span class="hint-line"></span></a>
+</section>
+
+<!-- ============ Marquee ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-group">
+      <span>Single Origin</span><i>◆</i><span>Hand Roasted</span><i>◆</i><span>Spring Water Brew</span><i>◆</i>
+      <span>Artisan Craft</span><i>◆</i><span>Slow is an art</span><i>◆</i><span>Seasonal, intentional</span><i>◆</i>
+    </div>
+    <div class="marquee-group">
+      <span>Single Origin</span><i>◆</i><span>Hand Roasted</span><i>◆</i><span>Spring Water Brew</span><i>◆</i>
+      <span>Artisan Craft</span><i>◆</i><span>Slow is an art</span><i>◆</i><span>Seasonal, intentional</span><i>◆</i>
+    </div>
+  </div>
+</div>
+
+<!-- ============ Products ============ -->
+<section class="section products" id="products">
+  <header class="section-head">
+    <p class="eyebrow" data-reveal>01 · PRODUCTS</p>
+    <h2 class="section-title">
+      <span class="mask" data-reveal-mask style="--d:0s"><span>Four simple things,</span></span>
+      <span class="mask" data-reveal-mask style="--d:.12s"><span>done right.</span></span>
+    </h2>
+    <p class="section-note" data-reveal style="--d:.2s">No prices, just flavor. Like something? Write to us.</p>
+  </header>
+
+  <div class="product-grid">
+    <article class="product">
+      <div class="product-inner" data-reveal style="--d:0s">
+        <a class="product-media" href="#contact">
+          <img loading="lazy" src="https://picsum.photos/seed/shilu-single-origin/900/1100" alt="Mountain Mist · Single Origin Coffee">
+          <span class="product-tag">Single Origin</span>
+        </a>
+        <div class="product-info">
+          <span class="product-index">No.01</span>
+          <h3 class="product-name">Mountain Mist · Single Origin Coffee</h3>
+          <p class="product-desc">Ethiopian Yirgacheffe washed — jasmine, citrus &amp; honey brightness.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="product">
+      <div class="product-inner" data-reveal style="--d:.12s">
+        <a class="product-media" href="#contact">
+          <img loading="lazy" src="https://picsum.photos/seed/shilu-roast-blend/900/1100" alt="Morning Haze · Signature Blend">
+          <span class="product-tag">Signature Blend</span>
+        </a>
+        <div class="product-info">
+          <span class="product-index">No.02</span>
+          <h3 class="product-name">Morning Haze · Signature Blend</h3>
+          <p class="product-desc">Medium-dark blend — nutty, caramel &amp; dark chocolate finish.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="product">
+      <div class="product-inner" data-reveal style="--d:.06s">
+        <a class="product-media" href="#contact">
+          <img loading="lazy" src="https://picsum.photos/seed/shilu-loose-tea/900/1100" alt="White Dew · Fine Loose Tea">
+          <span class="product-tag">Loose Leaf Tea</span>
+        </a>
+        <div class="product-info">
+          <span class="product-index">No.03</span>
+          <h3 class="product-name">White Dew · Fine Loose Tea</h3>
+          <p class="product-desc">High-mountain oolong whole leaf — a breath of the wild.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="product">
+      <div class="product-inner" data-reveal style="--d:.18s">
+        <a class="product-media" href="#contact">
+          <img loading="lazy" src="https://picsum.photos/seed/shilu-brewware/900/1100" alt="Earthenware · Brew Ware">
+          <span class="product-tag">Brew Ware</span>
+        </a>
+        <div class="product-info">
+          <span class="product-index">No.04</span>
+          <h3 class="product-name">Earthenware · Brew Ware</h3>
+          <p class="product-desc">Hand-thrown clay pot &amp; brass dripper stand — ritual made tactile.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <p class="products-foot" data-reveal>— Seasonal menu · Handwritten brew card with every order —</p>
+</section>
+
+<!-- ============ About ============ -->
+<section class="section about" id="about">
+  <div class="about-left">
+    <p class="eyebrow" data-reveal>02 · ABOUT</p>
+    <span class="about-seal" aria-hidden="true">拾</span>
+    <h2 class="about-word" data-reveal style="--d:.1s">Slow is fast</h2>
+    <p class="about-since" data-reveal style="--d:.2s">Since 2019 · From the mountains</p>
+  </div>
+
+  <div class="about-right">
+    <p class="philosophy" data-reveal>
+      We believe a good cup of coffee or tea is reason enough for time to slow down.<br>
+      From origin to cup, we subtract —<br>
+      leaving only essence, and a moment alone with yourself.
+    </p>
+
+    <figure class="about-figure" data-reveal style="--d:.1s">
+      <img loading="lazy" src="https://picsum.photos/seed/shilu-pour-over/1200/800" alt="Morning pour-over">
+      <figcaption>First pot of the morning · Pour-over at 92°C</figcaption>
+    </figure>
+
+    <div class="craft-list">
+      <div class="craft-row" data-reveal style="--d:0s">
+        <span class="craft-num">Ⅰ</span>
+        <div><h4>Direct Sourcing</h4><p>Direct partnerships with mountain estates and tea gardens — every bean and leaf is traceable to its source.</p></div>
+      </div>
+      <div class="craft-row" data-reveal style="--d:.08s">
+        <span class="craft-num">Ⅱ</span>
+        <div><h4>Small-Batch Roasting</h4><p>Weekly small-drum slow roasts — we only deliver beans at peak flavor.</p></div>
+      </div>
+      <div class="craft-row" data-reveal style="--d:.16s">
+        <span class="craft-num">Ⅲ</span>
+        <div><h4>Handcrafted Brewing</h4><p>We calibrate water temp and ratio so the ritual becomes a deep breath.</p></div>
+      </div>
+    </div>
+
+    <p class="about-sign" data-reveal>— SHILU Founder · A-Shi</p>
+  </div>
+</section>
+
+<!-- ============ Contact + Footer ============ -->
+<section class="section contact" id="contact">
+  <p class="eyebrow eyebrow-light" data-reveal>03 · CONTACT</p>
+  <h2 class="contact-title">
+    <span class="mask" data-reveal-mask style="--d:0s"><span>Come for a cup,</span></span>
+    <span class="mask" data-reveal-mask style="--d:.12s"><span>stay for a story.</span></span>
+  </h2>
+
+  <div class="contact-grid">
+    <div data-reveal style="--d:0s">
+      <h4>Write</h4>
+      <a class="contact-mail" href="mailto:hello@shilu.studio">hello@shilu.studio</a>
+    </div>
+    <div data-reveal style="--d:.08s">
+      <h4>Visit</h4>
+      <p>No. 27 Manjuelong Road, West Lake District, Hangzhou<br>SHILU Roastery · Under the old osmanthus tree</p>
+    </div>
+    <div data-reveal style="--d:.16s">
+      <h4>Hours</h4>
+      <p>Wed–Sun 10:00 – 18:00<br>Mon &amp; Tue — Mountain retreat</p>
+    </div>
+    <div data-reveal style="--d:.24s">
+      <h4>Follow</h4>
+      <p>WeChat · SHILU<br>Instagram · @shilu.roast</p>
+    </div>
+  </div>
+
+  <div class="contact-action" data-reveal>
+    <p class="contact-hint">Curious about the story behind SHILU, or how this site was made?</p>
+    <a href="more.html" class="btn btn-ghost btn-lg">More <span class="btn-arrow">→</span></a>
+  </div>
+
+  <div class="footer-bar">
+    <span>© 2026 SHILU · All rights reserved</span>
+    <span class="foot-links"><a href="#top">Back to top</a><i>·</i><a href="more.html">More</a></span>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

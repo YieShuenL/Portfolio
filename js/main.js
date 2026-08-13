@@ -6,7 +6,7 @@
 (function () {
   'use strict';
 
-  const SPA_ROUTES = { home: 1, projects: 1, about: 1 };
+  const SPA_ROUTES = { home: 1, projects: 1, websites: 1, about: 1 };
   let currentRoute = 'home';
 
   // ==========================================================
@@ -115,6 +115,7 @@
     const titles = {
       'home': 'Yie Shuen Lai — Game Developer Portfolio',
       'projects': 'Projects — Yie Shuen Lai',
+      'websites': 'Websites — Yie Shuen Lai',
       'about': 'About — Yie Shuen Lai'
     };
     document.title = titles[route] || titles['home'];
@@ -144,7 +145,7 @@
         if (currentRoute === 'home') navigate('projects');
         break;
       case 'Escape':
-        if (currentRoute === 'projects' || currentRoute === 'about') navigate('home');
+        if (currentRoute === 'projects' || currentRoute === 'websites' || currentRoute === 'about') navigate('home');
         break;
       case 'h':
         if (!e.ctrlKey && !e.metaKey) navigate('home');
