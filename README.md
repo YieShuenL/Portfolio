@@ -1,5 +1,5 @@
 Hi, I'm Lai Yie Shuen! 👋
-I’m a passionate Game Development student currently pursuing a Bachelor’s degree in Computer Science at Multimedia University (MMU). I specialize in creating immersive and innovative game experiences, with skills in Unreal Engine, GDevelop, C++, C#, and more.
+I'm a passionate Game Development graduate with a Bachelor's degree in Computer Science from Multimedia University (MMU). I specialize in creating immersive and innovative game experiences, with skills in Unreal Engine, GDevelop, C++, C#, and more.
 
 🎮 Projects
 Here are some of the game projects I’ve worked on—developed collaboratively with my coursemates as part of my studies:
