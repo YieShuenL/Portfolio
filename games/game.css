@@ -3,11 +3,24 @@
    ============================================================ */
 
 /* Inherit from main style.css — include it before this file */
+:root {
+  --bg-deep: var(--bg);
+  --bg-card: var(--surface);
+  --bg-card-hover: var(--surface-2);
+  --neon-green: var(--accent);
+  --neon-blue: var(--accent-2);
+  --neon-gold: #ffd66b;
+  --neon-orange: #ff8a5b;
+  --text-primary: var(--text);
+  --text-dim: var(--muted);
+  --font-pixel: var(--mono);
+  --font-mono: var(--mono);
+}
 
 .game-page-container {
-  max-width: 800px;
+  max-width: 1480px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 40px clamp(24px, 4vw, 72px) 90px;
   min-height: 100vh;
 }
 
@@ -15,9 +28,9 @@
 .game-back {
   font-family: var(--font-pixel);
   font-size: 1rem;
-  color: var(--text-dim);
-  background: none;
-  border: 2px solid var(--text-dim);
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid #3c4853;
   padding: 1rem 2rem;
   cursor: pointer;
   text-transform: uppercase;
@@ -29,16 +42,17 @@
 }
 
 .game-back:hover {
-  color: var(--neon-green);
-  border-color: var(--neon-green);
-  text-shadow: 0 0 8px var(--neon-green);
+  color: #10150b;
+  background: var(--accent);
+  border-color: var(--accent);
+  text-shadow: none;
 }
 
 /* Game hero section */
 .game-hero {
   text-align: center;
   margin-bottom: 4rem;
-  padding: 4rem 2rem;
+  padding: clamp(4rem, 7vw, 7rem) 3rem;
   background: var(--bg-card);
   border: 2px solid rgba(0, 255, 65, 0.2);
   border-radius: 2px;
@@ -85,7 +99,7 @@
 .game-section {
   background: var(--bg-card);
   border: 2px solid rgba(0, 255, 65, 0.15);
-  padding: 3rem;
+  padding: clamp(3rem, 4vw, 5rem);
   margin-bottom: 2rem;
   border-radius: 2px;
 }
@@ -152,23 +166,23 @@
   font-family: var(--font-pixel);
   font-size: 1.4rem;
   padding: 2rem 4rem;
-  background: var(--neon-green);
-  color: var(--bg-deep);
+  background: #72d8ff !important;
+  color: #07141a;
   text-decoration: none;
   border: none;
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 3px;
   transition: all 0.3s;
-  box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+  box-shadow: 0 12px 35px rgba(114, 216, 255, 0.18);
   position: relative;
   overflow: hidden;
 }
 
 .btn-download-lg:hover {
-  box-shadow: 0 0 40px rgba(0, 255, 65, 0.6);
+  box-shadow: 0 16px 45px rgba(114, 216, 255, 0.35);
   transform: scale(1.05);
-  background: #00ff55;
+  background: #a8e9ff !important;
 }
 
 .btn-download-lg:active {
@@ -199,21 +213,22 @@
   font-family: var(--font-pixel);
   font-size: 1.4rem;
   padding: 2rem 4rem;
-  background: transparent;
-  color: var(--neon-green);
+  background: #b8ff5a !important;
+  color: #10150b;
   text-decoration: none;
-  border: 3px solid var(--neon-green);
+  border: 2px solid #b8ff5a !important;
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 3px;
   transition: all 0.3s;
-  animation: blinkBorder 1.5s ease-in-out infinite;
+  box-shadow: 0 12px 35px rgba(184, 255, 90, 0.18);
 }
 
 .btn-play-lg:hover {
-  background: var(--neon-green);
-  color: var(--bg-deep);
-  box-shadow: 0 0 30px rgba(0, 255, 65, 0.5);
+  background: #d1ff96 !important;
+  color: #10150b;
+  box-shadow: 0 16px 45px rgba(184, 255, 90, 0.35);
+  transform: translateY(-2px);
 }
 
 @keyframes blinkBorder {
@@ -256,7 +271,7 @@
 /* Screenshot gallery */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
   margin-top: 1rem;
 }
@@ -287,9 +302,38 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .game-page-container { padding: 24px 18px 60px; }
   .game-title { font-size: 1.8rem; }
   .game-icon { font-size: 5rem; }
   .btn-download-lg,
   .btn-play-lg { font-size: 1.1rem; padding: 1.5rem 2.5rem; }
   .game-section { padding: 2rem; }
+  .gallery { grid-template-columns: 1fr; }
 }
+
+/* Press Start button treatment shared by every level page */
+.game-back,
+.btn-play-lg,
+.btn-download-lg {
+  background: #090c18 !important;
+  color: #00ff61 !important;
+  border: 3px solid #00ff61 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-family: 'Press Start 2P', var(--font-pixel) !important;
+  letter-spacing: .04em;
+  text-shadow: none !important;
+  animation: none !important;
+}
+
+.game-back:hover,
+.btn-play-lg:hover,
+.btn-download-lg:hover {
+  background: #00ff61 !important;
+  color: #06110b !important;
+  border-color: #00ff61 !important;
+  box-shadow: 0 0 10px #00ff61, 0 0 30px rgba(0, 255, 97, .8), inset 0 0 12px rgba(255, 255, 255, .28) !important;
+  transform: none !important;
+}
+
+.btn-download-lg::after { display: none; }
