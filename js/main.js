@@ -1,20 +1,22 @@
 (() => {
   const header = document.querySelector('.site-header');
   const flightPath = document.querySelector('.flight-path');
-  const starfield = document.querySelector('#starfield');
+  const starfield = document.querySelector('#stars');
   const links = [...document.querySelectorAll('nav a')];
   const sections = links.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
   const createStars = () => {
     if (!starfield || starfield.children.length) return;
     const fragment = document.createDocumentFragment();
-    for (let index = 0; index < 82; index += 1) {
-      const star = document.createElement('span');
-      const size = 1 + ((index * 7) % 3);
-      star.style.setProperty('--x', `${(index * 37) % 100}%`);
-      star.style.setProperty('--y', `${(index * 61) % 100}%`);
-      star.style.setProperty('--size', `${size}px`);
-      star.style.setProperty('--delay', `${-((index * 0.37) % 5)}s`);
-      star.style.setProperty('--duration', `${2.4 + ((index * 11) % 24) / 10}s`);
+    for (let index = 0; index < 120; index += 1) {
+      const star = document.createElement('div');
+      const size = Math.random() * 3 + 1;
+      const x = Math.random() * 100;
+      const y = Math.random() * 100;
+      const delay = Math.random() * 5;
+      const duration = 1.5 + Math.random() * 3;
+      const colors = ['#ffffff', '#00ff41', '#00d4ff', '#ffd700', '#ff6b9d'];
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      star.style.cssText = `position:absolute;left:${x}%;top:${y}%;width:${size}px;height:${size}px;background:${color};border-radius:50%;opacity:${0.2 + Math.random() * 0.5};animation:twinkle ${duration}s ${delay}s ease-in-out infinite;box-shadow:0 0 ${size * 2}px ${color};`;
       fragment.appendChild(star);
     }
     starfield.appendChild(fragment);
